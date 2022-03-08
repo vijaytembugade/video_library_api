@@ -1,4 +1,4 @@
-require "test_helper"
+git require "test_helper"
 
 class PlaylistTest < ActiveSupport::TestCase
   # test "the truth" do
