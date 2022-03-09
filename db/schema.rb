@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2022_03_08_111345) do
 
   create_table "playlists", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "user_id", null: false
     t.integer "video_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 2022_03_08_111345) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string "title"
-    t.string "category"
-    t.string "url"
-    t.string "thumbnail"
-    t.string "channelName"
+    t.string "title", null: false
+    t.string "category", null: false
+    t.string "url", null: false
+    t.string "thumbnail", null: false
+    t.string "channelName", null: false
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
