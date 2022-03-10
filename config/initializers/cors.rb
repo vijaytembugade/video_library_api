@@ -1,9 +1,9 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
+    origins 'http://localhost:3000'
     resource '*', 
     headers: :any,
-    credentials: false,
+    credentials: true,
     methods: [:get, :post, :patch, :put, :delete, :options, :head]
   end
 end

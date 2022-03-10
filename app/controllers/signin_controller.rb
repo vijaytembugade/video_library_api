@@ -23,8 +23,6 @@ class SigninController < ApplicationController
     session = JWTSessions::Session.new(refresh_by_access_allowed: true)
     tokens = session.login
     session.flush_by_access_payload
-
-    
     render json: :ok
   end
 

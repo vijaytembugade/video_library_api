@@ -8,6 +8,7 @@ gem "rails", "~> 7.0.1"
 gem 'rack-cors'
 gem "redis"
 gem "jwt_sessions"
+# gem 'api_guard'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

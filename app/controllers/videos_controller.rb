@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :authorize_access_request!, except: [:show, :index]
+  before_action :authorize_by_access_header!
   before_action :set_video, only: %i[edit update show destroy]
 
   # GET /videos or /videos.json

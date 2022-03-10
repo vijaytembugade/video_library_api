@@ -21,7 +21,9 @@ module RailsRuby3
 
     config.api_only = true
     config.action_dispatch.default_headers = {
-      'X-Frame-Options' => 'ALLOWFROM replit.com'
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => 'GET, PATCH, PUT, POST, OPTIONS, DELETE',
+      'Access-Control-Allow-Headers:' => 'Origin, X-Requested-With, Content-Type, Accept'  
     }
   end
 end
