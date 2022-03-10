@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  before_action :authorize_access_request
+  before_action :authenticate_and_set_user
   before_action :set_playlist, only: %i[ show edit update destroy ]
 
   # GET /playlists or /playlists.json
@@ -30,21 +30,19 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = current_user.playlists.build(playlist_params)
       if @playlist.save
-        render json: { render :show, status: :created, location: @playlist }
+        render json: { status: :created, playlist: @playlist }
       else
-        render json: { render json: @playlist.errors, status: :unprocessable_entity }
+        render json: { error: @playlist.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /playlists/1 or /playlists/1.json
   def update
       if @playlist.update(playlist_params)
-        render json: { render :show, status: :ok, playlist: @playlist }
+        render json: { status: :ok, playlist: @playlist }
       else
-        render json: { render json: @playlist.errors, status: :unprocessable_entity }
+        render json: {error: @playlist.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # DELETE /playlists/1 or /playlists/1.json

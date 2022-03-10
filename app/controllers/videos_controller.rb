@@ -1,10 +1,11 @@
 class VideosController < ApplicationController
-  before_action :authorize_access_request!, except: [:show, :index]
+  before_action :authenticate_and_set_user, except: [:show, :index, ]
   before_action :set_video, only: %i[edit update show destroy]
 
   # GET /videos or /videos.json
   def index
     @videos = Video.all
+    puts current_user.email
 
     if @videos 
       render json: { videos: @videos }

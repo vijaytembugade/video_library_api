@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   resources :playlists
   resources :videos
 
-  post "refresh", controller: :refresh, action: :create
-  post "signup", controller: :signup, action: :create
-  delete "signin", controller: :signin, action: :destroy
-  post "signin", controller: :signin, action: :create
+  api_guard_routes for: 'users'
+
+
+  # post "refresh", controller: :refresh, action: :create
+  # post "signup", controller: :signup, action: :create
+  # delete "signin", controller: :signin, action: :destroy
+  # post "signin", controller: :signin, action: :create
   
 end

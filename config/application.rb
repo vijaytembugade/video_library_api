@@ -21,7 +21,6 @@ module RailsRuby3
 
     config.api_only = true
     config.action_dispatch.default_headers = {
-      'X-Frame-Options' => 'ALLOWFROM replit.com'
     }
   end
 end
